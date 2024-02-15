@@ -73,6 +73,8 @@ void loop_400Hz(void)
   }
   
   Loop_counter ++ ;
+  
+  blink_led();
 
   //1秒ごとにLoop_counterの値を端末に表示
   if(Loop_counter%400==0) 

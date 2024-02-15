@@ -56,21 +56,21 @@ void loop_400Hz(void)
   //以下に記述したコードが400Hzで繰り返される
   
   //Motorが2秒動いて止まるデモ
-  if (Loop_counter < 800)
+  if (1)
   {
     //Start motor
-    set_motor_duty(FRONT_LEFT_MOTOR,  0.15);
-    set_motor_duty(FRONT_RIGHT_MOTOR, 0.15);
-    set_motor_duty(REAR_LEFT_MOTOR,   0.15);
-    set_motor_duty(REAR_RIGHT_MOTOR,  0.15);
+    set_motor_duty(FRONT_LEFT_MOTOR,  Stick[THROTTLE] * 0.9);
+    set_motor_duty(FRONT_RIGHT_MOTOR, Stick[THROTTLE] * 0.9);
+    set_motor_duty(REAR_LEFT_MOTOR,   Stick[THROTTLE] * 0.9);
+    set_motor_duty(REAR_RIGHT_MOTOR,  Stick[THROTTLE] * 0.9);
   }
-  else
+  else if(Stick[THROTTLE] > 0.25 && Stick[THROTTLE] < 0.35)
   {
     //スロットルレーバーでモータの回転が変わるようにする
     stop_motor();
-    
   }
-  
+  else{}
+
   Loop_counter ++ ;
 
   //送信機からの受信データを確認する

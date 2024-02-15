@@ -57,13 +57,19 @@ void loop_400Hz(void)
     set_motor_duty(REAR_LEFT_MOTOR,   0.15);
     set_motor_duty(REAR_RIGHT_MOTOR,  0.15);
   }
-  else
-  {
+  else if(Loop_counter < 1600){
     stop_motor();
   }
+  else
+  {
+    Loop_counter = 0;
+  }
   
+
   Loop_counter ++ ;
   if(Loop_counter%400==0) USBSerial.printf("%d\r\n", Loop_counter);
   
   //End of Loop_400Hz function
+
+  
 }
